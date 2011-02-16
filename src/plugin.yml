@@ -1,0 +1,5 @@
+name: NuxStats
+
+main: com.bukkit.N4th4.NuxStats.NuxStats
+
+version: 1.0
