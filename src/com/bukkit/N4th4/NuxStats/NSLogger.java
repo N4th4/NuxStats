@@ -10,9 +10,9 @@ public class NSLogger {
 		log = Logger.getLogger("Minecraft");
 	}
 	public static void info(String message) {
-    	log.log(Level.INFO, "[NuxNoob] "+message);
+    	log.log(Level.INFO, "[NuxSats] "+message);
     }
 	public static void severe(String message) {
-    	log.log(Level.SEVERE, "[NuxNoob] "+message);
+    	log.log(Level.SEVERE, "[NuxStats] "+message);
     }
 }

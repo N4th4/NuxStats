@@ -10,7 +10,6 @@ public class NSPlayerListener extends PlayerListener {
         plugin = instance;
     }
     public void onPlayerJoin(PlayerEvent event) {
-    	NSLogger.severe("Test");
     	plugin.playersCount++;
     	plugin.writePlayersNumber();
     }
