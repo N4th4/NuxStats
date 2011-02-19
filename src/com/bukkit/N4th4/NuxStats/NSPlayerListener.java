@@ -9,13 +9,14 @@ public class NSPlayerListener extends PlayerListener {
     public NSPlayerListener(NuxStats instance) {
         plugin = instance;
     }
+
     public void onPlayerJoin(PlayerEvent event) {
     	plugin.playersCount++;
     	plugin.writePlayersNumber();
     }
+
     public void onPlayerQuit(PlayerEvent event) {
-    	plugin.playersCount--;
-    	plugin.writePlayersNumber();
+        plugin.playersCount--;
+        plugin.writePlayersNumber();
     }
 }
-
