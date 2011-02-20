@@ -11,9 +11,7 @@ import java.util.HashMap;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event;
 import org.bukkit.entity.Player;
-import org.bukkit.Server;
 import org.bukkit.plugin.PluginDescriptionFile;
-import org.bukkit.plugin.PluginLoader;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,8 +20,7 @@ public class NuxStats extends JavaPlugin {
     private final HashMap<Player, Boolean> debugees = new HashMap<Player, Boolean>();
     public int playersCount;
 
-    public NuxStats(PluginLoader pluginLoader, Server instance, PluginDescriptionFile desc, File folder, File plugin, ClassLoader cLoader) {
-        super(pluginLoader, instance, desc, folder, plugin, cLoader);
+    public NuxStats() {
         NSLogger.initialize();
         playerListener = new NSPlayerListener(this);
         playersCount = 0;
