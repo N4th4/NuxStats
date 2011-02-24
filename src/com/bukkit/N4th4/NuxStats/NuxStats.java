@@ -1,11 +1,11 @@
 package com.bukkit.N4th4.NuxStats;
 
 import java.io.BufferedOutputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 import org.bukkit.event.Event.Priority;
@@ -45,13 +45,11 @@ public class NuxStats extends JavaPlugin {
 
     public void writePlayersNumber() {
         try {
-            DataOutputStream dos = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(new File(getDataFolder() + "/playersNumber.txt"))));
-            dos.writeUTF(String.valueOf(playersCount)); // A bit stupid but
-                                                        // writeInt() doesn't
-                                                        // work
-            dos.close();
+            OutputStreamWriter osw = new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("plugins/NuxStats/playersNumber.txt")), "8859_1");
+            osw.write(String.valueOf(playersCount));
+            osw.close();
         } catch (FileNotFoundException e) {
-            NSLogger.severe("Fichier non trouvé : " + getDataFolder() + "/playersNumber.txt");
+            NSLogger.severe("Fichier non trouvé : plugins/NuxStats/playersNumber.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
