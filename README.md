@@ -1,4 +1,4 @@
-NuxKits
+NuxStats
 =======
 
 NuxStats is a plugin that writes the number of players online in plugins/NuxStats/playersNumber.txt
