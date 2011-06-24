@@ -15,19 +15,17 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class NuxStats extends JavaPlugin {
-    private final NSPlayerListener playerListener;
-    private final HashMap<Player, Boolean> debugees = new HashMap<Player, Boolean>();
-    public int playersCount;
+    private final NSPlayerListener         playerListener = new NSPlayerListener(this);
+    private final HashMap<Player, Boolean> debugees       = new HashMap<Player, Boolean>();
+    public int                             playersCount   = 0;
 
     public NuxStats() {
         NSLogger.initialize();
-        playerListener = new NSPlayerListener(this);
-        playersCount = 0;
+
         try {
             new File("plugins/NuxStats/").mkdirs();
             new File("plugins/NuxStats/playersNumber.txt").createNewFile();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
