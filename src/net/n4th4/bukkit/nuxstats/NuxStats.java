@@ -1,4 +1,4 @@
-package com.bukkit.N4th4.NuxStats;
+package net.n4th4.bukkit.nuxstats;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -6,22 +6,19 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
+import java.util.logging.Logger;
 
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class NuxStats extends JavaPlugin {
-    private final NSPlayerListener         playerListener = new NSPlayerListener(this);
-    private final HashMap<Player, Boolean> debugees       = new HashMap<Player, Boolean>();
-    public int                             playersCount   = 0;
+    private final NSPlayerListener playerListener = new NSPlayerListener(this);
+    public final Logger            log            = this.getServer().getLogger();
+    public int                     playersCount   = 0;
 
     public NuxStats() {
-        NSLogger.initialize();
-
         try {
             new File("plugins/NuxStats/").mkdirs();
             new File("plugins/NuxStats/playersNumber.txt").createNewFile();
@@ -50,21 +47,9 @@ public class NuxStats extends JavaPlugin {
             osw.write(String.valueOf(playersCount));
             osw.close();
         } catch (FileNotFoundException e) {
-            NSLogger.severe("File not found : plugins/NuxStats/playersNumber.txt");
+            log.severe("[NuxStats] File not found : plugins/NuxStats/playersNumber.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public boolean isDebugging(final Player player) {
-        if (debugees.containsKey(player)) {
-            return debugees.get(player);
-        } else {
-            return false;
-        }
-    }
-
-    public void setDebugging(final Player player, final boolean value) {
-        debugees.put(player, value);
     }
 }

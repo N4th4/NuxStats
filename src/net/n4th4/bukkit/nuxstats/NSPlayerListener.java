@@ -1,4 +1,4 @@
-package com.bukkit.N4th4.NuxStats;
+package net.n4th4.bukkit.nuxstats;
 
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerListener;

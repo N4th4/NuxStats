@@ -1,5 +1,4 @@
 name: NuxStats
-
-main: com.bukkit.N4th4.NuxStats.NuxStats
-
-version: 1.2
+version: 1.3
+author: N4th4
+main: net.n4th4.bukkit.nuxstats.NuxStats
