@@ -15,7 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class NuxStats extends JavaPlugin {
     private final NSPlayerListener playerListener = new NSPlayerListener(this);
-    public final Logger            log            = this.getServer().getLogger();
+    public Logger                  log;
     public int                     playersCount   = 0;
 
     public NuxStats() {
@@ -28,6 +28,8 @@ public class NuxStats extends JavaPlugin {
     }
 
     public void onEnable() {
+        log = this.getServer().getLogger();
+
         playersCount = getServer().getOnlinePlayers().length;
         writePlayersNumber();
 
